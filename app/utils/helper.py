@@ -24,7 +24,7 @@ def exchange_for_tokens(auth_code_proof):
             # get the session id from flask request object
             # Save tokens in mongo
             User(
-                client_id = request.cookies.get('sessionid'), 
+                client_id = request.cookies.get('sessionid', '111'), 
                 access_token = tokens['access_token'],
                 refresh_token = tokens['refresh_token'],
                 expires_in = tokens['expires_in']

@@ -7,8 +7,7 @@ bp = Blueprint('/', __name__, url_prefix='/')
 
 @bp.route('/', methods=['GET'])
 def index():
-    user_id = request.cookies.get('sessionid')
-    
+    user_id = request.cookies.get('sessionid', '111')
     # Check if the users already have a token
     authorized = is_authorized(user_id = user_id)
     if not authorized:
